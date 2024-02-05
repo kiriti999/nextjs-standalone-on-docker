@@ -4,6 +4,7 @@ dump.rdb
 data
 tmp
 .vscode
+.next
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
