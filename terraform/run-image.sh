@@ -11,18 +11,17 @@ echo "Account ID:" $ACCOUNT_ID
 echo "run image: IMAGE_VERSION: $IMAGE_VERSION"
 echo "run image: ENV_NAME: $ENV_NAME"
 echo "run image: PORT $PORT"
-echo "run image: REDIS_PORT $REDIS_PORT"
-echo "run image: REDIS_COMMANDER_PORT $REDIS_COMMANDER_PORT"
 
 aws ecr get-login-password --region ${REGION} | docker login --username AWS --password-stdin ${ACCOUNT_ID}.dkr.ecr.ap-south-1.amazonaws.com
 
 if ! docker network inspect app-network &>/dev/null; then
     docker network create app-network
 fi
+
 if docker ps -a | grep -q "skillpact-$ENV_NAME"; then
     docker rm --force skillpact-$ENV_NAME
 fi
-fi
+
 if ! docker images -a | grep -q "$IMAGE_VERSION" && docker images -a | grep "skillpact"; then
     docker images -a | grep "skillpact" | awk '{print $3}' | xargs docker rmi -f
 fi

@@ -72,10 +72,10 @@ variable "acm_ssl_arn" {
 
 variable "load_balancer_arn" {
   type    = string
-  default = "arn:aws:elasticloadbalancing:ap-south-1:238369675568:listener/app/skillpact-load-balancer/adda4076807d972b/edaa6064cab982f8"
+  default = "arn:aws:elasticloadbalancing:ap-south-1:238369675568:listener/app/skillpact-load-balancer/c7742e16fa3896b0/c0698e091cc64a8f"
 }
 
 variable "skillpact_security_group" {
   type    = string
-  default = "sg-0d28c3dfbcf767f65"
+  default = "sg-0d20bd4b7dad5daf0"
 }
