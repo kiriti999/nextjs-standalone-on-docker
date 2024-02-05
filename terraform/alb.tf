@@ -2,8 +2,8 @@ data "aws_lb" "existing_alb" {
   name = "skillpact-load-balancer"
 }
 
-data "aws_lb_target_group" "existing_nextjs_tg" {
-  name = "nextjs-app-tg"
+data "aws_lb_target_group" "existing_app_tg" {
+  name = "skillpact-app-tg"
 }
 
 data "aws_lb_listener" "existing_listener" {
@@ -16,7 +16,7 @@ resource "aws_lb_listener_rule" "nextjs_app_routing_preflight" {
 
   action {
     type             = "forward"
-    target_group_arn = data.aws_lb_target_group.existing_nextjs_tg.arn
+    target_group_arn = data.aws_lb_target_group.existing_app_tg.arn
   }
 
   condition {
@@ -32,7 +32,7 @@ resource "aws_lb_listener_rule" "nextjs_app_routing" {
 
   action {
     type             = "forward"
-    target_group_arn = data.aws_lb_target_group.existing_nextjs_tg.arn
+    target_group_arn = data.aws_lb_target_group.existing_app_tg.arn
   }
 
   condition {
@@ -44,7 +44,7 @@ resource "aws_lb_listener_rule" "nextjs_app_routing" {
 }
 
 resource "aws_lb_target_group_attachment" "nextjs_target" {
-  target_group_arn = data.aws_lb_target_group.existing_nextjs_tg.arn
+  target_group_arn = data.aws_lb_target_group.existing_app_tg.arn
   target_id        = module.ec2_instance.id
-  port             = 4444
+  port             = 3000
 }

@@ -49,18 +49,8 @@ variable "vpc_cidr" {
 }
 
 variable "image_tag" {
-  type        = string
-  default     = "dev-v1"
-}
-
-variable "sns_email" {
   type    = string
-  default = "kiriti.k999@gmail.com"
-}
-
-variable "load_balancer_arn" {
-  type    = string
-  default = "arn:aws:elasticloadbalancing:ap-south-1:238369675568:listener/app/skillpact-load-balancer/d8630562828d6425/83924090b13735f7"
+  default = "dev-v1"
 }
 
 variable "env_name" {
@@ -78,4 +68,14 @@ variable "port" {
 variable "acm_ssl_arn" {
   type    = string
   default = "arn:aws:acm:ap-south-1:238369675568:certificate/df0ee229-f1bb-4c69-b989-c62e5e9f90ee"
+}
+
+variable "load_balancer_arn" {
+  type    = string
+  default = "arn:aws:elasticloadbalancing:ap-south-1:238369675568:listener/app/skillpact-load-balancer/adda4076807d972b/edaa6064cab982f8"
+}
+
+variable "skillpact_security_group" {
+  type    = string
+  default = "sg-0d28c3dfbcf767f65"
 }

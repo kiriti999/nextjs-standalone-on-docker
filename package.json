@@ -5,6 +5,7 @@
     "pm2-prod": "pm2-runtime apps/web/server.js",
     "docker-prod": "NODE_ENV=prod ENV=prod PORT=3000 docker compose -f docker-compose-prod.yml build node",
     "deploy": "sh deploy.sh --auto prod 3000",
+    "destroy": "cd terraform && terraform destroy && cd ..",
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",

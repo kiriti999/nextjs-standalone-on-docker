@@ -1,3 +1,9 @@
+data "aws_vpc" "existing_vpc" {
+  tags = {
+    Name = "skillpact-vpc"
+  }
+}
+
 data "aws_subnets" "existing_vpc_subnets" {
   filter {
     name   = "vpc-id"
