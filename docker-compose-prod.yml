@@ -1,0 +1,19 @@
+version: "3.2"
+
+services:
+  node:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.prod
+    container_name: "skillpact"
+    image: "skillpact:prod-v1.4"
+    env_file:
+      - .env.prod
+    ports:
+      - ${PORT}:${PORT}
+    networks:
+      - app
+
+networks:
+  app:
+    name: app
