@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./Dockerfile.prod
     container_name: "skillpact"
-    image: "skillpact:prod-v1.19"
+    image: "skillpact:prod-v1.21"
     env_file:
       - .env.prod
     ports:
