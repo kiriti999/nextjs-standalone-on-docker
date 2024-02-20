@@ -1,20 +1,35 @@
 {
   "name": "shell",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "lint": "next lint",
+    "test:update": "jest -u --runInBand=true",
+    "test:watch": "jest --watch --runInBand=true",
+    "test:mutation": "stryker run"
+  },
+  "dependencies": {
+    "next": "13.5.3"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "prettier": "^3.1.1",
-    "turbo": "latest"
-  },
-  "packageManager": "pnpm@8.9.0",
-  "engines": {
-    "node": ">=18"
+    "@stryker-mutator/core": "6.4.2",
+    "@stryker-mutator/jest-runner": "6.4.2",
+    "@stryker-mutator/typescript-checker": "6.4.2",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.22",
+    "@types/react-dom": "18.0.7",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.37.0",
+    "eslint-config-next": "13.3.0",
+    "postcss": "8.4.21",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.1",
+    "typescript": "5.2.2",
+    "@module-federation/nextjs-mf": "6.3.0",
+    "webpack": "5.78.0"
   }
 }
